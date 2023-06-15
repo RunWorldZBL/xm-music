@@ -16,7 +16,14 @@ module.exports = {
   devServer: {
     before(app) {
       registerRouter(app)
-    }
+    },
+    proxy: {
+      // 代理所有以 `/api` 开头的请求
+      "/api": {
+        target: "https://node-express-psi-sepia.vercel.app", // 后端服务器地址
+        changeOrigin: true, // 修改请求头中的 Host 为目标地址
+      },
+    },
   },
   configureWebpack: (config) => {
     if (process.env.npm_config_report) {
