@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://node-express-psi-sepia.vercel.app/api/:path*"
+    }
+  ]
+}
